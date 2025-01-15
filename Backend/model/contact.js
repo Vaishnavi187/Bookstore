@@ -1,0 +1,54 @@
+// const mongoose = require('mongoose');
+// const contactSchema=new mongoose.Schema({
+//     name: {
+//         type: String,
+//         required: true,
+//         trim: true,
+//       },
+//       email: {
+//         type: String,
+//         required: true,
+//         trim: true,
+//         lowercase: true,
+        
+//       },
+//       message: {
+//         type: String,
+//         required: true,
+//         trim: true,
+//       }
+  
+// },{timestamps:true})
+
+// const Contact = mongoose.model('Contact', contactSchema);
+
+// module.exports = Contact;
+
+// models/Contact.js
+
+const mongoose = require('mongoose');
+
+// Define the schema for storing contact form submissions
+const contactSchema = new mongoose.Schema({
+    username: {
+        type: String,
+        required: true
+    },
+    email: {
+        type: String,
+        required: true
+    },
+    message: {
+        type: String,
+        required: true
+    },
+    submittedAt: {
+        type: Date,
+        default: Date.now
+    }
+});
+
+// Create a model from the schema
+const Contact = mongoose.model('Contact', contactSchema);
+
+module.exports = Contact;
